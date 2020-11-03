@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="form_data_them">
+            <form>
+                <label for="image">AVATAR</label>
+                <input type="file" name="image" id="image" onchange="fileOk(this)">
+
+                <br>
+
+                <label for="mssv">MSSV</label>
+                <input type="text" name="mssv" id="mssv">
+
+                <br>
+
+                <label for="ho">Ho</label>
+                <input type="text" name="ho" id="ho">
+
+                <br>
+
+                <label for="ten">Ten</label>
+                <input type="text" name="ten" id="ten">
+
+                <br>
+
+                <label for="lop">Lop</label>
+                <input type="text" name="lop" id="lop">
+
+                <br>
+
+                <input type="submit" value="ADD" id="add">
+                <input type="submit" value="EDIT" id="editnha" onclick="suaNha(event)">
+
+            </form>
+        </div>
+
+        <div class="hienthi">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">MSSV</th>
+                        <th scope="col">AVATAR</th>
+                        <th scope="col">HO</th>
+                        <th scope="col">TEN</th>
+                        <th scope="col">LOP</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each results}}
+                    <tr>
+                        <th scope="row">{{@index}}</th>
+                        <td><img src="{{avatar}}" width="50" height="50" alt=""></td>
+                        <td>{{mssv}}</td>
+                        <td>{{ho}}</td>
+                        <td>{{ten}}</td>
+                        <td>{{lop}}</td>
+                        <td><a onclick="xoa({{mssv}})" href="javascript:void(0)">DELETE</a> | <a onclick="edit({{mssv}})" href="javascript:void(0)">EDIT</a></td>
+                        
+                    </tr>
+
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <script src="home.js"></script>
+</body>
+
+</html>
